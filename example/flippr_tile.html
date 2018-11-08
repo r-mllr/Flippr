@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+
+  </head>
+
+  <body>
+    
+    <div id="app" style="position: absolute;left: 50%; top: 50%">
+      <flippr link="https://github.com/r-mllr/Flippr" front-color="#8E43E8">
+        <template slot="front">
+          <img src="https://github.com/r-mllr/Flippr/raw/master/img/logoFlippr.png" alt="Flippr Logo">
+          Flippr
+        </template>
+        <template slot="back">
+          <div style="padding: 50px;">
+            <b>Flippr</b>
+            A small Vue-component for easily implementing flipping tiles
+          </div>
+        </template>
+      </flippr>
+    </div>
+  
+
+
+    <!-- include vue library and flippr component -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../src/flippr.js"></script>
+    <script src="../src/app.js"></script>
+  </body>
+
+</html>
