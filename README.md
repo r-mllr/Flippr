@@ -34,9 +34,8 @@ Several iterations of discussion with my colleagues later, we came up with tiles
 
 ```html
 <div id="app">
-  <flipper link="https://github.com/r-mllr/Flippr" front-color="#8E43E8">
+  <flipper link="https://github.com/r-mllr/Flippr" front-color="#8E43E8" front-font-mult="6">
     <template slot="front">
-       <img src="https://github.com/r-mllr/Flippr/raw/master/img/logoFlippr.png" alt="Flippr Logo">
        Flippr
     </template>
     <template slot="back">
