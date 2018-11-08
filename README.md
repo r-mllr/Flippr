@@ -1,5 +1,9 @@
 # Flippr
+
+![alt text][logo]
+
 A small [Vue](https://vuejs.org/) component for easily implementing flipping tiles
+
 
 ## Motivation
 I just needed some nice-looking entry points for my website. Just putting links on the navbar was not enough. 
@@ -12,7 +16,7 @@ Several iterations of discussion with my colleagues later, we came up with tiles
 ![alt text][back]
 
 
-
+[logo]: https://github.com/r-mllr/Flippr/raw/master/img/LogoFlippr.png "Flippr logo"
 [front]: https://github.com/r-mllr/Flippr/raw/master/img/front.png "Front view of tile"
 [back]: https://github.com/r-mllr/Flippr/raw/master/img/back.png "Back view of tile"
 
