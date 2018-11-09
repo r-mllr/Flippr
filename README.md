@@ -7,9 +7,8 @@ A small [Vue](https://vuejs.org/) component for easily implementing flipping til
 
 ## Examples
 
-![alt text][example1]
 
-[example1]: https://flippr.now.sh/example/flippr_tile.html "Flipper example 1"
+[Flipper Example 1](https://flippr.now.sh/example/flippr_tile.html "Flipper example 1")
 
 ## Motivation
 I just needed some nice-looking entry points for my website. Just putting links on the navbar was not enough. 
