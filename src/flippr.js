@@ -13,36 +13,55 @@ Vue.component("flippr", {
       default: "#FFFFFF"
     },
     width: {
-      default: "500px"
+      default: 500
     },
     height: {
-      default: "300px"
+      default: 300
     },
     frontFontMult: {
-      default: 3
+      default: 10
     },
     backFontMult: {
-      default: 2
+      default: 5
     },
+    unit: {
+      default: "px"
+    }
   },
   computed:{
-    biggerWidth(){
+    widthIsBigger(){
       return this.$parent.window.width > this.$parent.window.height
     },
     frontFont(){
-      return (this.frontFontMult/((this.biggerWidth)? 1 : 1.5 )) + ((this.biggerWidth)? "vh" : "vw")
+      if(this.widthIsBigger){
+        frontFont = (this.width * this.frontFontMult)/100   
+      }else{
+        frontFont = (this.height * this.frontFontMult)/100   
+      }
+      return frontFont+this.unit
     },
     backFont(){
-      return (this.backFontMult/((this.biggerWidth)? 1 : 1.5 )) + ((this.biggerWidth)? "vh" : "vw")
+      if(this.widthIsBigger){
+        backFont = (this.width * this.backFontMult)/100   
+      }else{
+        backFont = (this.height * this.backFontMult)/100   
+      }
+      return backFont+this.unit
     },
+    widthWithUnit(){
+      return this.width + this.unit
+      },
+    heightWithUnit(){
+      return this.height + this.unit
+      },
     containerStyle(){
       let style = {
         perspective: "1000px",
         "-webkit-perspective": "1000px",
         "-moz-perspective": "1000px",
         "-o-perspective": "1000px",
-        width: this.width,
-        height: this.height,
+        width: this.widthWithUnit,
+        height: this.heightWithUnit,
         margin: "10px 0px"
       }
       return style
@@ -52,8 +71,8 @@ Vue.component("flippr", {
         "-moz-transform": "perspective(1000px)",
         "-moz-transform-style": "preserve-3d",
         position: "relative",
-        width: this.width,
-        height: this.height,
+        width: this.widthWithUnit,
+        height: this.heightWithUnit,
         transform: "rotateY("+((this.hovered)?"180":"0")+"deg)",
         "-webkit-transition": "0.6s",
         "-webkit-transform-style": "preserve-3d",
@@ -70,10 +89,8 @@ Vue.component("flippr", {
     },
     frontAndBack(){
       return {
-        display: "flex",
-        width: this.width,
-        height: this.height,
-        flexDirection: "column",
+        width: this.widthWithUnit,
+        height: this.heightWithUnit,
         backfaceVisibility: "hidden",
         "-webkit-backface-visibility": "hidden",
         "-moz-backface-visibility": "hidden",
@@ -90,6 +107,8 @@ Vue.component("flippr", {
         color: 'white',
         backgroundColor: this.frontColor,
         border: "none",
+        display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         fontSize: this.frontFont,
@@ -100,18 +119,12 @@ Vue.component("flippr", {
         "-ms-transform":     "rotateY(0deg)",
         transform:          "rotateY(0deg)",
       }
-      if(this.isDisabled){
-        //style["opacity"]=0.6;
-      }
       return {...this.frontAndBack,...style}
     },
     backStyle(){
       let style = {
         color: 'black',
         textDecoration: "none",
-        justifyContent: "flex-start",
-        alignItems:  "flex-start",
-        //padding: "1vh 1vw",
         backgroundColor: this.backColor,
         border: "2px solid "+this.frontColor,
         fontSize: this.backFont,
@@ -138,11 +151,9 @@ Vue.component("flippr", {
           </slot>
         </a>
         <a slot="back" :href="link" :style="backStyle">
-          <div style="padding: 10px 10px">
-            <slot name="back">
-              something-back
-            </slot>
-          </div>
+          <slot name="back">
+            something-back
+          </slot>
         </a>
         <!-- -->
       </div>
