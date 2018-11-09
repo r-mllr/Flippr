@@ -19,33 +19,22 @@ Vue.component("flippr", {
       default: 300
     },
     frontFontMult: {
-      default: 10
+      default: 8
     },
     backFontMult: {
-      default: 5
+      default: 4
     },
     unit: {
       default: "px"
     }
   },
   computed:{
-    widthIsBigger(){
-      return this.$parent.window.width > this.$parent.window.height
-    },
     frontFont(){
-      if(this.widthIsBigger){
-        frontFont = (this.width * this.frontFontMult)/100   
-      }else{
-        frontFont = (this.height * this.frontFontMult)/100   
-      }
+      let frontFont = (this.height * this.frontFontMult)/20   
       return frontFont+this.unit
     },
     backFont(){
-      if(this.widthIsBigger){
-        backFont = (this.width * this.backFontMult)/100   
-      }else{
-        backFont = (this.height * this.backFontMult)/100   
-      }
+      backFont = (this.height * this.backFontMult)/30
       return backFont+this.unit
     },
     widthWithUnit(){

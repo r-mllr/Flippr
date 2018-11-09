@@ -7,15 +7,28 @@
 
   <body>
     
-    <div id="app" style="position: absolute;left: 50%; top: 50%">
-      <flippr link="https://github.com/r-mllr/Flippr" front-color="#8E43E8" front-font-mult="10">
+    <div id="app" style="position: absolute;left: 25%; top: 25%">
+      <flippr link="https://github.com/r-mllr/Flippr" front-color="#8E43E8" >
         <template slot="front">
           <div>
             Flippr
           </div>
         </template>
         <template slot="back">
-          <div style="padding: 50px;">
+          <div :style="'padding: '+window.height/100+'px '+window.width/100+'px;'">
+            <b>Flippr</b>:
+            A small Vue-component for easily implementing flipping tiles
+          </div>
+        </template>
+      </flippr>
+      <flippr link="https://github.com/r-mllr/Flippr" front-color="#8E43E8" front-font-mult="8" :width="window.width/4" :height="window.height/3" back-font-mult="3">
+        <template slot="front">
+          <div>
+            Flippr
+          </div>
+        </template>
+        <template slot="back">
+          <div :style="'padding: '+window.height/100+'px '+window.width/100+'px;'">
             <b>Flippr</b>:
             A small Vue-component for easily implementing flipping tiles
           </div>

@@ -34,22 +34,72 @@ Several iterations of discussion with my colleagues later, we came up with tiles
   - Easy to customize
   - Only inline CSS 
   
-## Code example
+## Code examples
 
+### HTML
+
+The Flippr component creates a flipping link. You need a front _template_ and a back _template_ tag:
 ```html
-<div id="app">
-  <flipper link="https://github.com/r-mllr/Flippr" front-color="#8E43E8" front-font-mult="6">
+  <flippr>
     <template slot="front">
-       Flippr
+      <div>
+        Flippr
+      </div>
     </template>
     <template slot="back">
-      <b>Flippr</b>
-      A small Vue-component for easily implementing flipping tiles
+      <div style="padding: 50px;">
+        <b>Flippr</b>:
+        A small Vue-component for easily implementing flipping tiles
+      </div>
     </template>
-  </flipper>
-</div>
+    
+  </flippr>
 ```
 
+
+```html
+<div id="app" style="position: absolute;left: 50%; top: 50%">
+  <flippr link="https://github.com/r-mllr/Flippr" front-color="#8E43E8" front-font-mult="10">
+    <template slot="front">
+      <!--
+      this goes to the front side
+      -->
+    </template>
+    <template slot="back">
+      <!--
+      this goes to the back side
+      -->
+    </template>
+  </flippr>
+</div>
+```
+### Vue instance
+The Vue instance need a window property with width and height
+
+```javascript
+new Vue({
+  el: "#app",
+  data: {
+    "window": {
+      "height": 0,
+      "width": 0
+    }
+  },
+  methods:{
+    handleResize(){
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    }
+  },
+  created(){
+    window.addEventListener('resize', this.handleResize, false);
+    this.handleResize();
+  },
+  destroyed(){
+      window.removeEventListener('resize', this.handleResize);
+  }
+});
+```
 ## Credits
 
 - inspired by https://davidwalsh.name/css-flip
