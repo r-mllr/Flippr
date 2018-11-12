@@ -134,11 +134,11 @@ Vue.component("flippr", {
     `
     <div class="flip-container" @mouseover="hovered=true" @mouseleave="hovered=false" :style="containerStyle">
       <div class="flipper" :style="flipperStyle">
-        <a :href="link" :style="frontStyle">
+        <div :style="frontStyle">
           <slot name="front">
             something
           </slot>
-        </a>
+        </div>
         <a slot="back" :href="link" :style="backStyle">
           <slot name="back">
             something-back
