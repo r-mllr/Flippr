@@ -101,6 +101,7 @@ Vue.component("flippr", {
         justifyContent: "center",
         alignItems: "center",
         fontSize: this.frontFont,
+        border: "2px solid "+this.backColor,
         zIndex: 2,
         "-webkit-transform": "rotateY(0deg)",
         "-moz-transform":    "rotateY(0deg)",
