@@ -39,11 +39,11 @@ Several iterations of discussion with my colleagues later, we came up with tiles
   - Easy to customize
   - Only inline CSS 
   
-## Code examples
+## Usage
 
 The Flippr component creates a flipping link. You need a front _template_ and a back _template_ tag:
 ```html
-  <flippr >
+  <flippr>
     <template slot="front">
       <!--
       this goes to the front side
@@ -57,23 +57,27 @@ The Flippr component creates a flipping link. You need a front _template_ and a 
   </flippr>
 ```
 
-
+### Props/HTML-attributes
+You can customize your Flipprs by setting Props/HTML-attributes:
 ```html
-<div id="app">  
-  <flippr link="https://github.com/r-mllr/Flippr" front-color="#8E43E8" front-font-mult="10">
-    <template slot="front">
-      <div>
-        Flippr
-      </div>
-    </template>
-    <template slot="back">
-        <b>Flippr</b>:
-        A small Vue-component for easily implementing flipping tiles
-      </div>
-    </template>
-  </flippr>
-</div>
+<flippr your-props=here>
+  
+</flippr>
 ```
+
+Valid attributes are:
+
+Name | What it does | Default | Datatype 
+---- | ------------ | ------- | -------- 
+width | defines the width of the flipping tile | 500 | Number (String might be working, too) 
+height | defines the height of the flipping tile | 300 | Number (String might be working, too) 
+unit | in which unit the width and height is defined | px | String 
+link | Where does the tile lead to | # | String 
+front-font-mult | The font of the front side is defined by the (height * front-font-mult) / 20 | 8 | Number (String might be working, too) 
+back-font-mult | The font of the back side is defined by the (height * back-font-mult) / 30 | 4 | Number (String might be working, too) 
+front-color | Background-color of the front side and border color of back side | #4CAF50 | String 
+back-color | Background-color of the back side and border color of the front side | #FFFFFF | String |
+is-disabled | the pointer will be set to 'not-allowed' and the opacity of the back side is 0.6 | false | Boolean 
 
 ## Credits
 
