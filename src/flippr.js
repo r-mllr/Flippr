@@ -85,6 +85,7 @@ Vue.component("flippr", {
         "-moz-backface-visibility": "hidden",
         "-o-backface-visibility": "hidden",
         position: "absolute",
+        boxSizing: "border-box",
         "top": 0,
         "left": 0,
         cursor: "pointer",
